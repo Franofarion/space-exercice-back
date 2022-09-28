@@ -1,4 +1,4 @@
-package com.example.application.space.exercice;
+package com.example.application.space.exercise.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

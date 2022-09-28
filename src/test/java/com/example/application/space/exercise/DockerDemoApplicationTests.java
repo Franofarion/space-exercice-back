@@ -1,4 +1,4 @@
-package com.example.application.space.exercice;
+package com.example.application.space.exercise;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
