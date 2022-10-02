@@ -10,7 +10,7 @@ services:
     volumes:
       - ${APPLICATION_ROOT_FOLDER}:/usr/src/mymaven
     depends_on:
-      - postgresql
+        - postgresql
 
   postgresql:
     image: postgres:12

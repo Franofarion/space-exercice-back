@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://docker.for.mac.host.internal:5432/space_exercise
+    password: ''
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect
+    hibernate:
+      ddl-auto: update
+space-exercise:
+  app:
+    jwtSecret: spaceExerciseJwtSecret
+    jwtExpirationMs: '86400000'

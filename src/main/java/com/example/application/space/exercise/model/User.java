@@ -2,25 +2,41 @@ package com.example.application.space.exercise.model;
 import javax.validation.constraints.NotBlank;
 import javax.persistence.*;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
 @Entity
-@Table(name = "users")
+@Table(	name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")
+        })
 public class User extends AuditModel {
     @Id
-    @GeneratedValue(generator = "user_generator")
-    @SequenceGenerator(
-            name = "user_generator",
-            sequenceName = "user_sequence",
-            initialValue = 1000
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    @Column(columnDefinition = "text")
+    @Size(max = 20)
     private String username;
 
     @NotBlank
-    @Column(columnDefinition = "text")
+    @Size(max = 50)
+    @Email
+    private String email;
+
+    @NotBlank
+    @Size(max = 120)
     private String password;
+
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public Long getId() {
         return id;
@@ -38,6 +54,14 @@ public class User extends AuditModel {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -46,4 +70,3 @@ public class User extends AuditModel {
         this.password = password;
     }
 }
-
